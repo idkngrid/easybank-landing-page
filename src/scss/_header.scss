@@ -1,0 +1,82 @@
+@use "./variables" as v;
+
+.header { 
+
+    nav {
+        padding: 1rem 1.5rem;
+    }
+    
+    &__logo {
+        img {
+            width: 8.8rem;
+            height: 1.375rem;
+        }
+    }
+
+    &__menu {
+
+        > span { // Mobile menu
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: v.$darkBlue;
+            transition: all .3s ease-in-out;
+            transform-origin: left center;
+
+            &:not(:last-child) {
+                margin-bottom: 0.3125rem;
+            }
+        }
+
+        &.open {
+
+            > span:first-child {
+                transform: rotate(45deg);
+            }
+
+            > span:nth-child(2) {
+                opacity: 0;
+            }
+
+            > span:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    &__links {
+        li {
+            &:not(:last-child) {
+                margin-right: 2rem;
+            }
+        }
+
+        a {
+            position: relative;
+            font-size: v.$font-small;
+            color: v.$grayishBlue;
+            transition: color .3s ease-in-out;
+
+            &::before {
+                content: '';
+                position: absolute;
+                display: block;
+                height: 5px;
+                left: 0;
+                right: 0;
+                bottom: -28px;
+                background: linear-gradient(to right, v.$limeGreen, v.$brightCyan);
+                opacity: 0;
+                transition: opacity .3s ease-in-out;
+            }
+
+            &:hover {
+                color: v.$darkBlue;
+
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
