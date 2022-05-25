@@ -1,6 +1,39 @@
 @use "./variables" as v;
 
 .header { 
+    // background-color: beige;
+
+    // Hamburger open styles
+    &.open {
+
+        .overlay {
+            display: block;
+        }
+
+        .header__menu {
+            > span:first-child {
+                transform: rotate(45deg);
+            }
+    
+            > span:nth-child(2) {
+                opacity: 0;
+            }
+    
+            > span:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 59px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-image: linear-gradient(v.$darkBlue, transparent);
+    }
 
     nav {
         padding: 1rem 1.5rem;
@@ -21,25 +54,10 @@
             height: 2px;
             background-color: v.$darkBlue;
             transition: all .3s ease-in-out;
-            transform-origin: left center;
+            transform-origin: 3px 1px;
 
             &:not(:last-child) {
                 margin-bottom: 0.3125rem;
-            }
-        }
-
-        &.open {
-
-            > span:first-child {
-                transform: rotate(45deg);
-            }
-
-            > span:nth-child(2) {
-                opacity: 0;
-            }
-
-            > span:last-child {
-                transform: rotate(-45deg);
             }
         }
     }
@@ -80,3 +98,4 @@
         }
     }
 }
+
