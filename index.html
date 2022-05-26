@@ -10,30 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dist/style.css">
   <title>Frontend Mentor | Easybank landing page</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
 
   <header class="header" id="header">
     <div class="overlay" id="overlay"></div>
 
-    <nav class="flex flex-jc-sb flex-ai-center">
+    <nav class="container flex flex-jc-sb flex-ai-center">
       <a href="/" class="header__logo">
         <img src="images/logo.svg" alt="">
       </a>
 
-      <a href="#" id="btnMobile" class="header__menu hide-for-desktop">
+      <a href="#" id="btnMobile" class="header__toggle hide-for-desktop">
         <span></span>
         <span></span>
         <span></span>
       </a>
 
-      <ul class="header__links flex hide-for-mobile">
+      <ul class="header__links">
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
@@ -43,14 +37,20 @@
 
       <button type="button" class="hide-for-mobile">Request Invite</button>
     </nav>
+
+    <!-- <div class="header__menu">
+      <ul class="header__links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div> -->
   </header>
 
-  <main>
-
-  </main>
-
-
-  Next generation digital banking
+  <main class="container">
+    Next generation digital banking
 
   Take your financial life online. Your Easybank account will be a one-stop-shop 
   for spending, saving, budgeting, investing, and much more.
@@ -79,6 +79,7 @@
   Open API
   Manage your savings, investments, pension, and much more from one account. Tracking 
   your money has never been easier.
+  </main>
 
     <!-- 
 

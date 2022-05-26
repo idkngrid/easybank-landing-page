@@ -1,42 +1,59 @@
 @use "./variables" as v;
+@use "./mixins" as mixin;
 
 .header { 
-    // background-color: beige;
 
     // Hamburger open styles
-    &.open {
+    @include mixin.breakpoint-down (medium) {
+        &.open {
 
-        .overlay {
-            display: block;
-        }
-
-        .header__menu {
-            > span:first-child {
-                transform: rotate(45deg);
+            .overlay {
+                display: block;
             }
     
-            > span:nth-child(2) {
+            .header__toggle {
+                > span:first-child {
+                    transform: rotate(45deg);
+                }
+        
+                > span:nth-child(2) {
+                    opacity: 0;
+                }
+        
+                > span:last-child {
+                    transform: rotate(-45deg);
+                }
+            }
+    
+            .header__links {
+                display: block;
+                position: absolute;
+                top: 5.5rem;
+                width: 100%;
+                background-color: v.$white;
+    
+                li {
+                    text-align: center;
+                    margin: 1.5rem 0;
+                }
+    
+                a {
+                    color: v.$darkBlue;
+                    font-weight: 400;
+                    padding: .5rem;
+                }
+            }
+
+            .overlay {
                 opacity: 0;
-            }
-    
-            > span:last-child {
-                transform: rotate(-45deg);
+                position: fixed;
+                top: 59px;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                background-image: linear-gradient(v.$darkBlue, transparent);
             }
         }
-    }
-
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 59px;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        background-image: linear-gradient(v.$darkBlue, transparent);
-    }
-
-    nav {
-        padding: 1rem 1.5rem;
     }
     
     &__logo {
@@ -46,12 +63,12 @@
         }
     }
 
-    &__menu {
+    &__toggle {
 
-        > span { // Mobile menu
+        > span { // Mobile Menu Toggle
             display: block;
-            width: 26px;
-            height: 2px;
+            width: 1.625rem;
+            height: 0.125rem;
             background-color: v.$darkBlue;
             transition: all .3s ease-in-out;
             transform-origin: 3px 1px;
@@ -63,36 +80,42 @@
     }
 
     &__links {
-        li {
-            &:not(:last-child) {
-                margin-right: 2rem;
-            }
-        }
+        display: none;
 
-        a {
-            position: relative;
-            font-size: v.$font-small;
-            color: v.$grayishBlue;
-            transition: color .3s ease-in-out;
+        @include mixin.breakpoint-up (large) {
+            display: flex;
 
-            &::before {
-                content: '';
-                position: absolute;
-                display: block;
-                height: 5px;
-                left: 0;
-                right: 0;
-                bottom: -28px;
-                background: linear-gradient(to right, v.$limeGreen, v.$brightCyan);
-                opacity: 0;
-                transition: opacity .3s ease-in-out;
+            li {
+                &:not(:last-child) {
+                    margin-right: 2rem;
+                }
             }
 
-            &:hover {
-                color: v.$darkBlue;
+            a {
+                position: relative;
+                font-size: v.$font-small;
+                color: v.$grayishBlue;
+                transition: color .3s ease-in-out;
 
                 &::before {
-                    opacity: 1;
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    height: 5px;
+                    left: 0;
+                    right: 0;
+                    bottom: -28px;
+                    background: linear-gradient(to right, v.$limeGreen, v.$brightCyan);
+                    opacity: 0;
+                    transition: opacity .3s ease-in-out;
+                }
+
+                &:hover {
+                    color: v.$darkBlue;
+
+                    &::before {
+                        opacity: 1;
+                    }
                 }
             }
         }
