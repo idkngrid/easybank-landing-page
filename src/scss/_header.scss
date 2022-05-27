@@ -3,12 +3,27 @@
 
 .header { 
 
+    nav {
+        position: relative;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: v.$white;
+        z-index: 1;
+    }
+
     // Hamburger open styles
     @include mixin.breakpoint-down (medium) {
         &.open {
 
             .overlay {
                 display: block;
+                opacity: 0;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                background-image: linear-gradient(v.$darkBlue, transparent);
             }
     
             .header__toggle {
@@ -28,9 +43,12 @@
             .header__links {
                 display: block;
                 position: absolute;
-                top: 5.5rem;
-                width: 100%;
+                top: 5.1875rem;
+                left: 1.5rem;
+                right: 1.5rem;
                 background-color: v.$white;
+                border-radius: 5px;
+                z-index: 1;
     
                 li {
                     text-align: center;
@@ -42,16 +60,6 @@
                     font-weight: 400;
                     padding: .5rem;
                 }
-            }
-
-            .overlay {
-                opacity: 0;
-                position: fixed;
-                top: 59px;
-                bottom: 0;
-                right: 0;
-                left: 0;
-                background-image: linear-gradient(v.$darkBlue, transparent);
             }
         }
     }

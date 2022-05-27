@@ -1,0 +1,27 @@
+@use "./mixins" as mixin;
+
+.hero {
+
+    &__image {
+        position: relative;
+        background: url('../../images/bg-intro-mobile.svg') no-repeat center / cover;
+        min-height: 17.5rem;
+
+        @include mixin.breakpoint-up(medium){
+            min-height: 25rem;
+            background-position: center 70%;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/image-mockups.png');
+            background-size: 93%;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+        }
+    }
+
+}
