@@ -1,15 +1,24 @@
 @use "./mixins" as mixin;
+@use "./variables" as v;
 
 .hero {
+    background-color: v.$veryLightGray;
+
+    @include mixin.breakpoint-up(large) {
+        display: flex;
+        align-items: center;
+    }
 
     &__image {
         position: relative;
         background: url('../../images/bg-intro-mobile.svg') no-repeat center / cover;
         min-height: 17.5rem;
 
-        @include mixin.breakpoint-up(medium){
-            min-height: 25rem;
-            background-position: center 70%;
+        @include mixin.breakpoint-up(large){
+            flex: 3;
+            order: 2;
+            background: url('../../images/bg-intro-desktop.svg') no-repeat left center / cover;
+            min-height: 41rem;
         }
 
         &::before {
@@ -22,6 +31,31 @@
             background-repeat: no-repeat;
             background-position: center bottom;
         }
+    }
+
+    &__text {
+        text-align: center;
+
+        @include mixin.breakpoint-up(large) {
+            flex: 2;
+            text-align: left;
+        }
+
+        h1 {
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+
+            @include mixin.breakpoint-up(large) {
+                font-size: v.$font-xlg;
+            }
+        }
+
+        p {
+            line-height: 1.5;
+            margin-bottom: 2.25rem;
+        }
+
+        
     }
 
 }
