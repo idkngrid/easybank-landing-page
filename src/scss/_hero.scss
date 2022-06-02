@@ -3,10 +3,13 @@
 
 .hero {
     background-color: v.$veryLightGray;
+    overflow: hidden;
 
-    @include mixin.breakpoint-up(large) {
-        display: flex;
-        align-items: center;
+    .container {
+        @include mixin.breakpoint-up(large) {
+            display: flex;
+            align-items: center;
+        }
     }
 
     &__image {
@@ -14,14 +17,33 @@
         background: url('../../images/bg-intro-mobile.svg') no-repeat center / cover;
         min-height: 17.5rem;
 
+        @include mixin.breakpoint-up(medium) {
+            min-height: 25rem;
+            background-position: center 70%;
+        }
+
         @include mixin.breakpoint-up(large){
             flex: 3;
             order: 2;
-            background: url('../../images/bg-intro-desktop.svg') no-repeat left center / cover;
-            min-height: 41rem;
+            background-image: none;
+            height: 41rem;
         }
 
         &::before {
+
+            @include mixin.breakpoint-up(large) {
+                content: "";
+                position: absolute;
+                width: 150%;
+                height: 100%;
+                background-image: url('/images/bg-intro-desktop.svg');
+                background-size: 112%;
+                background-repeat: no-repeat;
+                background-position: 0% 100%;
+            }
+        }
+
+        &::after {
             content: "";
             position: absolute;
             width: 100%;
@@ -30,6 +52,18 @@
             background-size: 93%;
             background-repeat: no-repeat;
             background-position: center bottom;
+
+            @include mixin.breakpoint-up(medium) {
+                background-size: 60%;
+            }
+
+            @include mixin.breakpoint-up(large) {
+                width: 120%;
+                height: 122%;
+                background-size: 93%;
+                background-position: center 150%;
+                left: 20%;
+            }
         }
     }
 

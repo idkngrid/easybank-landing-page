@@ -35,6 +35,14 @@ h1 {
     }
   }
 
+h2 {
+    font-size: 1.875rem;
+
+    @include mixin.breakpoint-up(large) {
+        font-size: v.$font-lg;
+      }
+}
+
 // Container
 .container {
     max-width: 70rem;

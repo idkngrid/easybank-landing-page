@@ -1,0 +1,29 @@
+@use "./variables" as v;
+@use "./mixins" as mixin;
+
+.feature {
+    background-color: v.$lightGrayishBlue;
+
+    &__grid {
+        @include mixin.breakpoint-up(medium) {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+
+        @include mixin.breakpoint-up(medium) {
+            flex: 1 0 50%;
+        }
+
+        @include mixin.breakpoint-up(large) {
+            flex: 1;
+        }
+    }
+
+    &__title {
+        
+    }
+}
