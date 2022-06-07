@@ -3,6 +3,7 @@
 
 a, a:visited, a:hover, a:active {
     text-decoration: none;
+    cursor: pointer;
 }
 
 body { 
@@ -20,7 +21,8 @@ body {
 // Text
 h1,
 h2,
-h3 {
+h3, 
+h4 {
   font-weight: 300;
   // line-height: 1.1;
   color: v.$darkBlue;
@@ -37,10 +39,29 @@ h1 {
 
 h2 {
     font-size: 1.875rem;
+    margin-bottom: 1.5rem;
 
     @include mixin.breakpoint-up(large) {
         font-size: v.$font-lg;
+        margin-bottom: 2.25rem;
       }
+}
+
+h3 {
+    font-size: 1.25rem;
+
+    @include mixin.breakpoint-up(large) {
+        font-size: v.$font-big;
+    }
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 2.25rem;
 }
 
 // Container
@@ -48,12 +69,30 @@ h2 {
     max-width: 70rem;
     margin: 0 auto;
     
-    &--pall { padding: 2.25rem 1.5rem };
-    &--py { padding-top: 2.25rem; padding-bottom: 2.25rem };
+    &--pall { 
+        padding: 4.375rem 1.5rem; 
+        @include mixin.breakpoint-up(large) { padding: 6rem 1.5rem } 
+    };
+
+    &--py { 
+        padding-top: 4.375rem; padding-bottom: 4.375rem; 
+        @include mixin.breakpoint-up(large) { padding-top: 6rem; padding-bottom: 6rem; }
+    };
+
     &--px { padding-right: 1.5rem; padding-left: 1.5rem };
-    &--ptop{ padding-top: 2.25rem; };    
-    &--pright{ padding-right: 1.5rem; };    
-    &--pbottom{ padding-bottom: 2.25rem };    
+    
+    &--ptop{ 
+        padding-top: 4.375rem; 
+        @include mixin.breakpoint-up(large) { padding-top: 6rem }
+    };
+
+    &--pright{ padding-right: 1.5rem };
+    
+    &--pbottom{ 
+        padding-bottom: 4.375rem; 
+        @include mixin.breakpoint-up(large) { padding-bottom: 6rem }
+    };
+
     &--pleft{ padding-left: 1.5rem };    
 }
 
@@ -76,6 +115,21 @@ h2 {
 
     &-ai-center {
         align-items: center;
+    }
+}
+
+// Grid
+.grid {
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+
+    @include mixin.breakpoint-up(medium) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    @include mixin.breakpoint-up(large) {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 

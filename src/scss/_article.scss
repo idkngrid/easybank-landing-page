@@ -1,0 +1,31 @@
+@use './variables' as v;
+@use './mixins' as mixin;
+
+.articles {
+    background-color: v.$veryLightGray;
+
+    .article {
+        &__item {
+
+        }
+        
+        &__image {
+            // width: 250px;
+            // height: 200px;
+            border-radius: 5px;
+        }
+
+        &__text {
+            background-color: v.$white;
+            padding: 2rem;
+        }
+
+        &__author {
+            font-size: v.$font-small;
+        }
+
+        &__description {
+            font-size: 1rem;
+        }
+    }      
+}

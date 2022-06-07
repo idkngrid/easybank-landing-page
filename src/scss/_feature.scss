@@ -3,27 +3,37 @@
 
 .feature {
     background-color: v.$lightGrayishBlue;
+    text-align: center;
 
-    &__grid {
-        @include mixin.breakpoint-up(medium) {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
+    @include mixin.breakpoint-up(medium) {
+        text-align: left;
     }
-
-    &__item {
-
-        @include mixin.breakpoint-up(medium) {
-            flex: 1 0 50%;
-        }
+    
+    &__intro {
+        margin-bottom: 3.75rem;
 
         @include mixin.breakpoint-up(large) {
-            flex: 1;
+            max-width: 60%;
+        }
+    }   
+
+    &__icon {
+        margin-bottom: 1.7rem;
+        
+        @include mixin.breakpoint-up(large) {
+            margin-bottom: 2.5rem;
         }
     }
 
     &__title {
-        
+        margin-bottom: 1rem;
+
+        @include mixin.breakpoint-up(large) {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__description {
+        font-size: 1rem;
     }
 }
