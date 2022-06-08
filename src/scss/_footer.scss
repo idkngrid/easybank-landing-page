@@ -1,0 +1,47 @@
+@use "./variables" as v;
+@use "./mixins" as mixin;
+
+.footer {
+    background-color: v.$darkBlue;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    &__grid {
+        display: grid;
+
+        @include mixin.breakpoint-up(medium) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+    
+        @include mixin.breakpoint-up(large) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__item {
+
+        &--grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &__logo {
+        
+    }
+
+    &__socials {
+        display: flex;
+        gap: .8rem;
+    }
+
+    &__links {
+
+        &--flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}
