@@ -41,6 +41,12 @@
                 background-repeat: no-repeat;
                 background-position: 0% 100%;
             }
+
+            @media screen and (min-width: 1400px) {
+                background-size: 120%;
+                background-position: 0% 80%;
+                left: 15%;
+            }
         }
 
         &::after {
@@ -63,6 +69,12 @@
                 background-size: 93%;
                 background-position: center 150%;
                 left: 20%;
+            }
+
+            @media screen and (min-width: 1400px) {
+                background-size: 100%;
+                background-position: center 85%;
+                left: 50%;
             }
         }
     }

@@ -3,8 +3,19 @@
 
 .footer {
     background-color: v.$darkBlue;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    color: v.$white;
+    padding: 2rem 2.5rem;
+    font-size: v.$font-small;
+    text-align: center;
+
+    @include mixin.breakpoint-up(large) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    a {
+        color: white;
+    }
 
     &__grid {
         display: grid;
@@ -28,20 +39,39 @@
     }
 
     &__logo {
-        
+        display: block;
+        margin-bottom: 1.875rem;
     }
 
     &__socials {
         display: flex;
-        gap: .8rem;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.875rem;
     }
 
     &__links {
 
-        &--flex {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        li {
+            margin-bottom: 1rem;
+        }
+
+        // &.col1 {
+
+        // }
+
+        &.col2 {
+            margin-bottom: 1.875rem;
         }
     }
+
+    &__cta {
+        .button {
+            margin-bottom: 1.875rem;
+        }
+    }
+
+    // &__copyright {
+
+    // }
 }

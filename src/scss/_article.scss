@@ -3,7 +3,6 @@
 
 .articles {
     background-color: v.$veryLightGray;
-
     h2 {
         text-align: center;
 
@@ -14,29 +13,35 @@
 
     .article {
 
-        // &__item {
+        &__item {
+            background-color: v.$white;
+            border-radius: 0.3125rem;
+            overflow: hidden;
+            margin-bottom: 2.8rem;
+            box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
 
-        // }
+            &:hover {
+                transform: scale(1.03);
+            }
+        }
         
         &__image {
-            // width: 250px;
-            // height: 200px;
-            border-radius: 5px;
+            height: 200px;
+            background-size: cover;
         }
 
         &__text {
-            background-color: v.$white;
-            margin-bottom: 1.7rem;
-            padding: 2rem;
+            padding: 2rem 1.5rem;
 
             @include mixin.breakpoint-up(large) {
-                margin-bottom: 2.5rem;
+                margin-bottom: 0;
             }
         }
 
         &__author {
             font-size: 0.625rem;
-            margin-bottom: 1rem;
+            margin-bottom: .6rem;
         }
 
         &__title {

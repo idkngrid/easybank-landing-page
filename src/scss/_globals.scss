@@ -125,7 +125,7 @@ p {
 
     @include mixin.breakpoint-up(medium) {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        gap: 1.9rem;
     }
 
     @include mixin.breakpoint-up(large) {
