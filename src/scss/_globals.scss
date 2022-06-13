@@ -135,19 +135,32 @@ p {
 
 // Buttons
 button, .button {
+    position: relative;
     display: inline-block;
     padding: .8rem 2rem;
-    background: linear-gradient(to right, v.$limeGreen, v.$brightCyan);
+    background-image: linear-gradient(to right, v.$limeGreen, v.$brightCyan);
     font-family: inherit;
     color: v.$white;
     font-weight: 400;
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    transition: opacity 300ms ease-in-out;
+    overflow: hidden;
 
-    &:hover {
-        opacity: 0.75;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.25);
+        opacity: 0;
+        transition: opacity .2s ease-in-out;
+    }
+
+    &:hover::before {
+        opacity: 1;
     }
 }
 

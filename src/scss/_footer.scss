@@ -4,14 +4,9 @@
 .footer {
     background-color: v.$darkBlue;
     color: v.$white;
-    padding: 2rem 2.5rem;
+    padding: 3rem 2.5rem;
     font-size: v.$font-small;
     text-align: center;
-
-    @include mixin.breakpoint-up(large) {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
 
     a {
         color: white;
@@ -26,14 +21,17 @@
             grid-template-areas: 
                 "logo links1 links2 cta"
                 "social links1 links2 copyright";
-            gap: 1rem;
             justify-items: start;
+            gap: 1rem;
         }
     }
 
     &__logo {
         display: inline-block;
-        margin-bottom: 1.875rem;
+
+        @include mixin.breakpoint-down(medium) {
+            margin-bottom: 1.875rem;
+        }
 
         @include mixin.breakpoint-up(large) {
             grid-area: logo;
@@ -41,11 +39,28 @@
     }
 
     &__socials {
-        margin-bottom: 1.875rem;
+        @include mixin.breakpoint-down(medium) {
+            margin-bottom: 1.875rem;
+        }
 
         @include mixin.breakpoint-up(large) {
             grid-area: social;
-            align-self: end;
+        }
+
+        a {
+            display: inline-block;
+
+            svg path {
+                transition: fill .15s ease-in-out;
+            }
+
+            &:hover svg path {
+                fill: v.$limeGreen;
+            }
+        }
+
+        a:not(:last-child) {
+            margin-right: .8rem;
         }
     }
 
@@ -54,8 +69,9 @@
         flex-direction: column;
         align-items: center;
 
-        li {
-            margin-bottom: 1rem;
+        @include mixin.breakpoint-up(large) {
+            justify-content: space-between;
+            align-items: start;
         }
 
         &.col1 {
@@ -65,7 +81,9 @@
         }
 
         &.col2 {
-            margin-bottom: 1.875rem;
+            @include mixin.breakpoint-down(medium) {
+                margin-bottom: 1.875rem;
+            }
 
             @include mixin.breakpoint-up(large) {
                 grid-area: links2;
@@ -73,23 +91,36 @@
         }
 
         li {
-            @include mixin.breakpoint-up(large) {
-                text-align: left;
+            line-height: 2.25;
+        }
+
+        a {
+            transition: color .15s ease-in-out;
+
+            &:hover {
+                color: v.$limeGreen;
             }
         }
     }
 
     &__cta {
-        @include mixin.breakpoint-up(large) {
-            grid-area: cta;
+        @include mixin.breakpoint-down(medium) {
+            margin-bottom: 1.875rem;
         }
 
-        .button {
-            margin-bottom: 1.875rem;
+        @include mixin.breakpoint-up(large) {
+            grid-area: cta;
+            justify-self: end;
         }
     }
 
     &__copyright {
-        grid-area: copyright;
+        color: v.$grayishBlue;
+
+        @include mixin.breakpoint-up(large) {
+            grid-area: copyright;
+            justify-self: end;
+            align-self: end
+          }
     }
 }
