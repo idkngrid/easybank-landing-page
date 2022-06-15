@@ -3,7 +3,7 @@
 
 .hero {
     background-color: v.$veryLightGray;
-    overflow: hidden;
+    
 
     .container {
         @include mixin.breakpoint-up(large) {
@@ -64,11 +64,11 @@
             }
 
             @include mixin.breakpoint-up(large) {
-                width: 120%;
-                height: 122%;
-                background-size: 93%;
+                width: 130%;
+                height: 114%;
+                background-size: 80%;
                 background-position: center 150%;
-                left: 20%;
+                left: 18%;
             }
 
             @media screen and (min-width: 1400px) {
